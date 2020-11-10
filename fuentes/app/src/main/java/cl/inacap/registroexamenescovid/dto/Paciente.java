@@ -1,10 +1,9 @@
 package cl.inacap.registroexamenescovid.dto;
 
-import android.app.DatePickerDialog;
 
-import java.sql.Date;
+import java.io.Serializable;
 
-public class Paciente {
+public class Paciente implements Serializable {
 
     private String rut;
     private String nombre;

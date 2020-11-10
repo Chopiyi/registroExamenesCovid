@@ -14,4 +14,8 @@
     <string name="presion_registro">Presion</string>
     <string name="temperatura_registro">Temperatura</string>
     <string name="registrar_boton">Registrar Paciente</string>
+    <string-array name="selector_area">
+        <item>Atención a público</item>
+        <item>Otro</item>
+    </string-array>
 </resources>

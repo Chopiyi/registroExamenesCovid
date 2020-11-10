@@ -9,6 +9,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -40,6 +41,7 @@ public class RegistrarPacienteActivity extends AppCompatActivity {
     private EditText presion;
     private Button boton_agregar;
     private PacientesDAOSQLite pacientesDAO = new PacientesDAOSQLite(RegistrarPacienteActivity.this);
+    private ArrayAdapter<CharSequence> adapter;
 
     public static Boolean validaRut ( String rut ) {
         Pattern pattern = Pattern.compile("^[0-9]+-[0-9kK]{1}$");
@@ -78,6 +80,9 @@ public class RegistrarPacienteActivity extends AppCompatActivity {
         this.presion = findViewById(R.id.registro_presion);
         this.boton_agregar = findViewById(R.id.boton_registrar);
         Calendar calendar = Calendar.getInstance();
+        this.adapter = ArrayAdapter.createFromResource(this, R.array.selector_area, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        area.setAdapter(adapter);
         final int year = calendar.YEAR;
         final int month = calendar.MONTH;
         final int day = calendar.DAY_OF_MONTH;
