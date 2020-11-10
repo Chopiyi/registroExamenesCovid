@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">RegistroExamenesCovid</string>
+    <string name="iniciar_sesion_btn">Iniciar Sesión</string>
+    <string name="contrasena_login">Contraseña</string>
+    <string name="rut">RUT</string>
+    <string name="titulo_login">Iniciar Sesión</string>
+    <string name="nombre_registro">Nombre</string>
+    <string name="rut_registro">RUT</string>
+    <string name="apellido_registro">Apellido</string>
+    <string name="fecha_registro">Fecha</string>
+    <string name="area_registro">Area</string>
+    <string name="sintomas_registro">Sintomas</string>
+    <string name="tos_registro">Tos</string>
+    <string name="presion_registro">Presion</string>
+    <string name="temperatura_registro">Temperatura</string>
+    <string name="registrar_boton">Registrar Paciente</string>
+</resources>

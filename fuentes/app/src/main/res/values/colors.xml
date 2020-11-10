@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2220B9</color>
+    <color name="colorAccent">#43D3B9</color>
+    <color name="colorAccent2">#9BF3F0</color>
+    <color name="colorFondo">#DAFFED</color>
+    <color name="textPrimary1">#08082B</color>
+    <color name="textPrimary2">#FFFFFF</color>
+    <color name="textSecondary">#A3A3A3</color>
+    <color name="kokoro">#E60C0C</color>
+</resources>
