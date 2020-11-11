@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -23,13 +25,22 @@ public class HomeActivity extends AppCompatActivity {
     private ListView pacientes_lv;
     private AdaptadorListaExamenes adaptador;
     private View button;
+    private ImageView toolbar_image;
+    private Toolbar toolbar;
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         this.setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        this.toolbar_image = findViewById(R.id.imagen_toolbar);
+        Picasso.get().load("https://cdn.pixabay.com/photo/2020/03/23/10/26/covid-19-4960254_960_720.png").resize(102, 59).centerCrop().into(this.toolbar_image);
     }
 
     @Override
@@ -41,6 +52,10 @@ public class HomeActivity extends AppCompatActivity {
         this.adaptador = new AdaptadorListaExamenes(this, R.layout.examenes_list, this.listaPacientes);
         this.pacientes_lv.setAdapter(this.adaptador);
         this.pacientes_lv.setVisibility(View.VISIBLE);
+        this.toolbar = findViewById(R.id.toolbar);
+        this.setSupportActionBar(this.toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

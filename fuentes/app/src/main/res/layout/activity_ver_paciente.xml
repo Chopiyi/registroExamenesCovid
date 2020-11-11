@@ -28,7 +28,7 @@ tools:context=".VerPacienteActivity">
             android:textSize="@dimen/title_size"
             android:textColor="@color/textPrimary1"
             android:id="@+id/ver_apellido"
-            android:layout_marginLeft="2dp"></TextView>
+            android:layout_marginLeft="8dp"></TextView>
     </LinearLayout>
 
     <LinearLayout
@@ -37,7 +37,7 @@ tools:context=".VerPacienteActivity">
         android:paddingVertical="@dimen/pad_vertical_login"
         android:paddingHorizontal="@dimen/pad_horiz_login"
         android:orientation="vertical"
-        android:background="@color/colorAccent2"
+        android:background="@drawable/borde_login"
         android:layout_marginHorizontal="@dimen/pad_horiz_login"
         android:layout_marginVertical="@dimen/pad_vertical_login"
         android:gravity="center">

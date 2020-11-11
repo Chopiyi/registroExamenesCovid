@@ -59,8 +59,12 @@ public class MainActivity extends AppCompatActivity {
                 String rut = input_rut.getText().toString().trim();
                 String contrasenia = input_contrasenia.getText().toString().trim();
                 if(rut.isEmpty() || validaRut(rut) == false){
+                    input_rut.setBackground(getDrawable(R.drawable.borde_error));
+                    input_contrasenia.setBackground(getDrawable(R.color.textPrimary2));
                     Toast.makeText(MainActivity.this, "Ingrese un rut válido por favor", Toast.LENGTH_SHORT).show();
                 } else if(contrasenia.isEmpty() || !contrasenia.equals(digitos(rut))) {
+                    input_contrasenia.setBackground(getDrawable(R.drawable.borde_error));
+                    input_rut.setBackground(getDrawable(R.color.textPrimary2));
                     Toast.makeText(MainActivity.this, "La contraseña debe estar compuesta por los últimos 4 dígitos de su rut, sin considerar el dígito verificador", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
@@ -68,6 +72,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 }

@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import cl.inacap.registroexamenescovid.dto.Paciente;
 
@@ -19,13 +22,23 @@ public class VerPacienteActivity extends AppCompatActivity {
     private TextView tos;
     private TextView temperatura;
     private TextView presion;
-    private TextView fecha;;
+    private TextView fecha;
+    private Toolbar toolbar;
+    private ImageView toolbar_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_paciente);
         this.setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        this.toolbar_image = findViewById(R.id.imagen_toolbar);
+        Picasso.get().load("https://cdn.pixabay.com/photo/2020/03/23/10/26/covid-19-4960254_960_720.png").resize(102, 59).centerCrop().into(this.toolbar_image);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     @Override
@@ -40,6 +53,11 @@ public class VerPacienteActivity extends AppCompatActivity {
         this.tos = findViewById(R.id.ver_toos);
         this.temperatura = findViewById(R.id.ver_temperatura);
         this.presion = findViewById(R.id.ver_presion);
+        this.toolbar = findViewById(R.id.toolbar);
+        this.setSupportActionBar(this.toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         if(getIntent().getExtras() != null){
             this.paciente = (Paciente) getIntent().getSerializableExtra("paciente");
             this.rut.setText(paciente.getRut());

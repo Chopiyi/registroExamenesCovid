@@ -36,9 +36,9 @@ public class PacienteDBOpenHelper extends SQLiteOpenHelper {
                             ", '23/05/1994'" +
                             ", 'Otro'" +
                             ", 'false'" +
-                            ", 34" +
-                            ", 34.5" +
-                            ", 0)");
+                            ", '35'" +
+                            ", '34.5'" +
+                            ", '0')");
         } catch (SQLException ex) {
             System.out.println(ex);
         }

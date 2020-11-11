@@ -24,7 +24,7 @@ public class PacientesDAOSQLite implements PacientesDAOInt {
     public void save(Paciente p) {
         SQLiteDatabase writer = this.db.getWritableDatabase();
         String sql = String.format("INSERT INTO paciente(" + "rut, nombre, apellido, fecha, area_trabajo, sintomas, temperatura, tos, presion) " +
-                "VALUES('%s', '%s', '%s', '%s', '%s', '%b', '%f', '%b', '%n')",
+                "VALUES('%s', '%s', '%s', '%s', '%s', '%b', '%f', '%b', '%d')",
                 p.getRut(), p.getNombre(), p.getApellido(), p.getFecha(), p.getArea_trabajo(), p.isSintomas(), p.getTemperatura(), p.isTos(), p.getPresion());
         writer.execSQL(sql);
         writer.close();

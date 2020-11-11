@@ -13,9 +13,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.sql.Date;
 import java.text.NumberFormat;
@@ -42,6 +45,8 @@ public class RegistrarPacienteActivity extends AppCompatActivity {
     private Button boton_agregar;
     private PacientesDAOSQLite pacientesDAO = new PacientesDAOSQLite(RegistrarPacienteActivity.this);
     private ArrayAdapter<CharSequence> adapter;
+    private Toolbar toolbar;
+    private ImageView toolbar_image;
 
     public static Boolean validaRut ( String rut ) {
         Pattern pattern = Pattern.compile("^[0-9]+-[0-9kK]{1}$");
@@ -58,12 +63,21 @@ public class RegistrarPacienteActivity extends AppCompatActivity {
         return ( S > 0 ) ? String.valueOf(S-1) : "k";
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_paciente);
         this.setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        this.toolbar_image = findViewById(R.id.imagen_toolbar);
+        Picasso.get().load("https://cdn.pixabay.com/photo/2020/03/23/10/26/covid-19-4960254_960_720.png").resize(102, 59).centerCrop().into(this.toolbar_image);
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     @Override
@@ -79,6 +93,10 @@ public class RegistrarPacienteActivity extends AppCompatActivity {
         this.temperatura = findViewById(R.id.registro_temperatura);
         this.presion = findViewById(R.id.registro_presion);
         this.boton_agregar = findViewById(R.id.boton_registrar);
+        this.toolbar = findViewById(R.id.toolbar);
+        this.setSupportActionBar(this.toolbar);
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setDisplayShowHomeEnabled(true);
         Calendar calendar = Calendar.getInstance();
         this.adapter = ArrayAdapter.createFromResource(this, R.array.selector_area, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -124,6 +142,9 @@ public class RegistrarPacienteActivity extends AppCompatActivity {
                 if(presion.getText().toString().isEmpty()){
                     errores.add("No ingresó la presión");
                 }
+                if(area.getSelectedItemPosition() == 0){
+                    errores.add("No seleccionó el área de trabajo");
+                }
 
                 if (errores.isEmpty()){
                     Paciente p = new Paciente();
@@ -131,7 +152,7 @@ public class RegistrarPacienteActivity extends AppCompatActivity {
                     p.setNombre(nombre.getText().toString());
                     p.setApellido(apellido.getText().toString());
                     p.setFecha(fecha.getText().toString());
-                    p.setArea_trabajo("Hola");
+                    p.setArea_trabajo(area.getSelectedItem().toString());
                     p.setSintomas(sintomas.isChecked());
                     p.setTos(tos.isChecked());
                     p.setTemperatura(Float.valueOf(temperatura.getText().toString()));
@@ -141,7 +162,7 @@ public class RegistrarPacienteActivity extends AppCompatActivity {
                 } else {
                     AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarPacienteActivity.this);
                     builder.setTitle("Error en el ingreso");
-                    builder.setMessage(errores.toString());
+                    builder.setMessage(errores.toString().replace(',', '\n').replace('[', ' ').replace(']', ' '));
                     builder.setPositiveButton("Aceptar", null);
                     AlertDialog dialog = builder.create();
                     dialog.show();

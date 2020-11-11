@@ -48,7 +48,7 @@ public class AdaptadorListaExamenes extends ArrayAdapter<Paciente> {
         Paciente paciente = listaPacientes.get(i);
         nombre.setText(paciente.getNombre());
         apellido.setText(paciente.getApellido());
-        fecha.setText(paciente.getFecha().toString());
+        fecha.setText(paciente.getFecha());
         rut.setText(paciente.getRut());
         if(paciente.isSintomas()){
             alerta_covid.setImageResource(R.drawable.logo_covid_positivo);

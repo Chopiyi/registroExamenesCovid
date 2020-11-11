@@ -7,19 +7,19 @@
     android:layout_height="wrap_content"
     app:popupTheme="@style/Theme.AppCompat.Light"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    android:background="@color/colorAccent"
+    android:background="@color/colorAccent2"
     android:id="@+id/toolbar"
     >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal">
                 <ImageView
-                    android:layout_width="200px"
-                    android:layout_height="200px"
-                    android:src="@mipmap/logo_toolbar"
-                    android:layout_marginVertical="15dp">
+                    android:layout_width="102dp"
+                    android:layout_height="59dp"
+                    android:id="@+id/imagen_toolbar"
+                    android:layout_marginVertical="10dp">
                 </ImageView>
         </LinearLayout>
 

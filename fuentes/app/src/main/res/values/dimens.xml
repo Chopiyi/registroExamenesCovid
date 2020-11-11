@@ -6,4 +6,7 @@
     <dimen name="title_size">30sp</dimen>
     <dimen name="subtitle_size">20sp</dimen>
     <dimen name="margin_text">10dp</dimen>
+    <dimen name="ancho_borde">2dp</dimen>
+    <dimen name="borde_error">4dp</dimen>
+    <dimen name="radio_boton">25dp</dimen>
 </resources>
