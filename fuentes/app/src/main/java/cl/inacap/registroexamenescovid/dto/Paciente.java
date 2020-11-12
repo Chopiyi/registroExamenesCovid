@@ -88,19 +88,5 @@ public class Paciente implements Serializable {
         this.presion = presion;
     }
 
-    @Override
-    public String toString() {
-        return "Paciente{" +
-                "rut='" + rut + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", fecha=" + fecha +
-                ", area_trabajo='" + area_trabajo + '\'' +
-                ", sintomas=" + sintomas +
-                ", temperatura=" + temperatura +
-                ", tos=" + tos +
-                ", presion=" + presion +
-                '}';
-    }
 }
 

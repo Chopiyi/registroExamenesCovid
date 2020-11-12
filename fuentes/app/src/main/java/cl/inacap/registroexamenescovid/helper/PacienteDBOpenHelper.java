@@ -28,17 +28,6 @@ public class PacienteDBOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         try {
             sqLiteDatabase.execSQL(sqlCreate);
-            sqLiteDatabase.execSQL(
-                    "INSERT INTO paciente(rut, nombre, apellido, fecha, area_trabajo, sintomas, presion, temperatura, tos)" +
-                            "VALUES ('18585098-1'" +
-                            ", 'Alexis'" +
-                            ", 'Gutierrez'" +
-                            ", '23/05/1994'" +
-                            ", 'Otro'" +
-                            ", 'false'" +
-                            ", '35'" +
-                            ", '34.5'" +
-                            ", '0')");
         } catch (SQLException ex) {
             System.out.println(ex);
         }

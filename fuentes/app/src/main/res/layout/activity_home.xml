@@ -24,8 +24,7 @@
         android:paddingHorizontal="@dimen/pad_horiz_login"
         android:paddingVertical="@dimen/pad_vertical_login"
         android:orientation="vertical"
-        android:layout_below="@+id/layout_toolbar"
-        >
+        android:layout_below="@+id/layout_toolbar">
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

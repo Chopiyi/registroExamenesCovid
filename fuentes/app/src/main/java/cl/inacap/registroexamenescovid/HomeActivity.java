@@ -67,7 +67,25 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(HomeActivity.this, VerPacienteActivity.class);
-                intent.putExtra("paciente", listaPacientes.get(i));
+                String[] datos_paciente = new String[9];
+                datos_paciente[0] =  listaPacientes.get(i).getRut();
+                datos_paciente[1] =  listaPacientes.get(i).getNombre();
+                datos_paciente[2] =  listaPacientes.get(i).getApellido();
+                datos_paciente[3] = "Area de trabajo: " + listaPacientes.get(i).getArea_trabajo();
+                datos_paciente[4] =  "Fecha de examen: " + listaPacientes.get(i).getFecha();
+                if(listaPacientes.get(i).isSintomas()){
+                    datos_paciente[5] = "Presenta síntomas de Covid";
+                } else {
+                    datos_paciente[5] = "No presenta síntomas de Covid";
+                }
+                if(listaPacientes.get(i).isTos()){
+                    datos_paciente[6] = "Tiene tos";
+                } else {
+                    datos_paciente[6] ="No tiene tos";
+                }
+                datos_paciente[7] = "Temperatura: " + listaPacientes.get(i).getTemperatura() + "°";
+                datos_paciente[8] = "Presión arterial: " + listaPacientes.get(i).getPresion();
+                intent.putExtra("paciente", datos_paciente);
                 startActivity(intent);
             }
         });

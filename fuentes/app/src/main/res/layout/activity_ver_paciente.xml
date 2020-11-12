@@ -10,87 +10,24 @@ tools:context=".VerPacienteActivity">
 
 <include layout="@layout/toolbar"></include>
 
-    <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/pad_vertical_login"
+        android:text="@string/datos_del_paciente"
+        android:textColor="@color/textPrimary1"
+        android:textSize="@dimen/title_size">
+    </TextView>
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/pad_vertical_login">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/title_size"
-            android:textColor="@color/textPrimary1"
-            android:id="@+id/ver_nombre"></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/title_size"
-            android:textColor="@color/textPrimary1"
-            android:id="@+id/ver_apellido"
-            android:layout_marginLeft="8dp"></TextView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/pad_vertical_login"
-        android:paddingHorizontal="@dimen/pad_horiz_login"
-        android:orientation="vertical"
         android:background="@drawable/borde_login"
         android:layout_marginHorizontal="@dimen/pad_horiz_login"
         android:layout_marginVertical="@dimen/pad_vertical_login"
-        android:gravity="center">
+        android:id="@+id/lista_detalle_paciente">
+    </ListView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size"
-            android:textColor="@color/textPrimary1"
-            android:id="@+id/ver_rut"></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size"
-            android:textColor="@color/textPrimary1"
-            android:layout_marginTop="@dimen/margin_text"
-            android:id="@+id/ver_fecha"></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size"
-            android:textColor="@color/textPrimary1"
-            android:layout_marginTop="@dimen/margin_text"
-            android:id="@+id/ver_area"></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size"
-            android:textColor="@color/textPrimary1"
-            android:layout_marginTop="@dimen/margin_text"
-            android:id="@+id/ver_sintomas"></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size"
-            android:textColor="@color/textPrimary1"
-            android:layout_marginTop="@dimen/margin_text"
-            android:id="@+id/ver_toos"></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size"
-            android:textColor="@color/textPrimary1"
-            android:layout_marginTop="@dimen/margin_text"
-            android:id="@+id/ver_temperatura"></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/subtitle_size"
-            android:textColor="@color/textPrimary1"
-            android:layout_marginTop="@dimen/margin_text"
-            android:id="@+id/ver_presion"></TextView>
 
-    </LinearLayout>
 
 </LinearLayout>

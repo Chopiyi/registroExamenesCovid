@@ -4,27 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ListView;
+
 
 import com.squareup.picasso.Picasso;
 
-import cl.inacap.registroexamenescovid.dto.Paciente;
+import cl.inacap.registroexamenescovid.adapters.AdaptadorListaPaciente;
 
 public class VerPacienteActivity extends AppCompatActivity {
 
-    private Paciente paciente;
-    private TextView rut;
-    private TextView nombre;
-    private TextView apellido;
-    private TextView areaTrabajo;
-    private TextView sintomas;
-    private TextView tos;
-    private TextView temperatura;
-    private TextView presion;
-    private TextView fecha;
+    private String[] paciente;
     private Toolbar toolbar;
     private ImageView toolbar_image;
+    private AdaptadorListaPaciente adapter;
+    private ListView paciente_lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,39 +39,17 @@ public class VerPacienteActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        this.rut = findViewById(R.id.ver_rut);
-        this.nombre = findViewById(R.id.ver_nombre);
-        this.apellido = findViewById((R.id.ver_apellido));
-        this.fecha = findViewById(R.id.ver_fecha);
-        this.areaTrabajo = findViewById(R.id.ver_area);
-        this.sintomas = findViewById(R.id.ver_sintomas);
-        this.tos = findViewById(R.id.ver_toos);
-        this.temperatura = findViewById(R.id.ver_temperatura);
-        this.presion = findViewById(R.id.ver_presion);
         this.toolbar = findViewById(R.id.toolbar);
         this.setSupportActionBar(this.toolbar);
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         this.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         if(getIntent().getExtras() != null){
-            this.paciente = (Paciente) getIntent().getSerializableExtra("paciente");
-            this.rut.setText(paciente.getRut());
-            this.nombre.setText(paciente.getNombre());
-            this.apellido.setText(paciente.getApellido());
-            this.fecha.setText("Fecha de examen: " + paciente.getFecha());
-            this.areaTrabajo.setText("Area de trabajo: " + paciente.getArea_trabajo());
-            if(paciente.isSintomas()){
-                this.sintomas.setText("Tiene síntomas de COVID");
-            } else {
-                this.sintomas.setText("No presenta síntomas");
-            }
-            if(paciente.isTos()){
-                this.tos.setText("Presenta tos");
-            } else {
-                this.tos.setText("No presenta tos");
-            }
-            this.temperatura.setText("Temperatura: " + String.valueOf(paciente.getTemperatura()));
-            this.presion.setText("Presion arterial: " + String.valueOf(paciente.getPresion()));
+            this.paciente_lv = findViewById(R.id.lista_detalle_paciente);
+            this.paciente = (String[]) getIntent().getSerializableExtra("paciente");
+            this.adapter = new AdaptadorListaPaciente(VerPacienteActivity.this, R.layout.paciente_list, paciente);
+            this.paciente_lv.setAdapter(adapter);
+            this.paciente_lv.setVisibility(View.VISIBLE);
         }
 
     }
